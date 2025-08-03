@@ -11,19 +11,19 @@ extern int YMAX;  // Y方向の最大値
 extern int ZMAX;  // Z方向の最大値
 
 /// 流体の種類とIDを定義
-enum class FLUID {
+typedef enum {
     GAS,
     LIQUID
-};
+} FLUID;
 
 /// 境界条件の種類とIDを定義
-enum class BC {
+typedef enum {
     PFIX_BC,     // 圧力固定の境界条件
     VFIX_BC,     // 流速固定の境界条件
     WALL_BC,     // 壁面境界の境界条件
     ON_WALL_BC,  // 境界条件
     ISOLATED_BC, // 孤立壁の境界条件
-};
+} BoundaryCondition;
 
 /// 流体の物理的特性を定義するクラス
 class properties_of_fluid
@@ -38,7 +38,7 @@ private:
 public:
     //int test; // テスト用のフラグ
     properties_of_fluid(/* args */);
-    void set_properties(double rho, double mu, double k = 1.0, double cp = 2.0, FLUID type, int test = 0);
+    void set_properties(double rho, double mu, double k, double cp, FLUID type = GAS, int test = 0);
     vector<double> get_properties(int test = 0);
     ~properties_of_fluid();
 };
