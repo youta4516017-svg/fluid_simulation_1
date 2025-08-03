@@ -5,13 +5,10 @@
 
 using std::vector;
 
-//int XMAX;  // X方向の最大値
-//int YMAX;  // Y方向の最大値
-//int ZMAX;  // Z方向の最大値
 
 /// ２次元座標を計算する関数
 vector<double> get_position_at_2D(int index, double dx, double dy) {
-    double X, Y;
+    int X, Y;
     vector<int> index_2D(2);
 
     X = XMAX;
@@ -27,13 +24,36 @@ vector<double> get_position_at_2D(int index, double dx, double dy) {
     return position;
 }
 
+/// ３次元座標を計算する関数
+vector<double> get_position_at_3D(int index, double dx, double dy, double dz) {
+    int X, Y, Z;
+    vector<int> index_3D(3);
+
+    X = XMAX;
+    Y = YMAX;
+    Z = ZMAX;
+
+    index_3D = get_3D_index(index, X, Y, Z);  // 仮のXMAX, YMAX, ZMAXを使用
+
+    std::cout << index_3D[0] << "," << index_3D[1] << "," << index_3D[2] << std::endl;
+
+    vector<double> position(3);
+    position[0] = index_3D[0] * dx;  // x座標
+    position[1] = index_3D[1] * dy;  // y座標
+    position[2] = index_3D[2] * dz;  // z座標
+    return position;
+}
+
+
+
 // テスト関数
 int main(void){
     int index = 200;  // テスト用のインデックス
     double dx = 0.1; // x方向の間隔
     double dy = 0.1; // y方向の間隔
+    double dz = 0.1; // z方向の間隔
 
-    XMAX = 30, YMAX = 30; // 仮のXMAX, YMAXを設定
+    XMAX = 30, YMAX = 30, ZMAX = 10; // 仮のXMAX, YMAX, ZMAXを設定
 
     vector<double> position = get_position_at_2D(index, dx, dy);
     std::cout << "Position at index " << index << ": (" 
