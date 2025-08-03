@@ -6,6 +6,10 @@
 
 using std::vector;
 
+extern int XMAX;  // X方向の最大値
+extern int YMAX;  // Y方向の最大値
+extern int ZMAX;  // Z方向の最大値
+
 enum class FLUID {
     // 流体の種類とIDを定義
     GAS,

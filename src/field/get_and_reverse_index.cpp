@@ -1,14 +1,19 @@
 #include <iostream>
 #include <vector>
+#include "field.hpp"
 
 using std::vector;
 
+int XMAX;  // X方向の最大値
+int YMAX;  // Y方向の最大値
+int ZMAX;  // Z方向の最大値
+
 
 /// 一次元配列の番号から２次元空間の座標を計算する関数
-vector<int> get_2D_index(int n, int XMAX, int YMAX){
+vector<int> get_2D_index(int n, int X, int Y){
     /// n は１次元配列のインデックス
-    int y = n/XMAX;
-    int x = n - y*XMAX;
+    int y = n/X;
+    int x = n - y*X;
 
     /// 座標の計算
     vector<int> position(2);
@@ -19,18 +24,18 @@ vector<int> get_2D_index(int n, int XMAX, int YMAX){
 }
 
 /// ２次元空間の座標から一次元配列のインデックスを返す関数
-int reverse_index_2D(int i, int j, int XMAX, int YMAX){
+int reverse_index_2D(int i, int j, int X, int Y){
     /// n は１次元配列のインデックス
     int n;
-    return n = i + XMAX*j;
+    return n = i + X*j;
 }
 
 /// 一次元配列の番号から３次元空間の座標を計算する関数
-vector<int> get_3D_index(int n, int XMAX, int YMAX, int ZMAX){
+vector<int> get_3D_index(int n, int X, int Y, int Z){
     /// n は１次元配列のインデックス
-    int z = n/(XMAX*YMAX);
-    int y = (n - z*XMAX*YMAX)/XMAX;
-    int x = n - y*XMAX - z*XMAX*YMAX;
+    int z = n/(X*Y);
+    int y = (n - z*X*Y)/X;
+    int x = n - y*X - z*X*Y;
 
     /// 座標の計算
     vector<int> position(3);
@@ -42,13 +47,13 @@ vector<int> get_3D_index(int n, int XMAX, int YMAX, int ZMAX){
 }
 
 /// ３次元空間の座標から一次元配列のインデックスを返す関数
-int reverse_index_3D(int i, int j, int k, int XMAX, int YMAX, int ZMAX){
+int reverse_index_3D(int i, int j, int k, int X, int Y, int Z){
     /// n は１次元配列のインデックス
     int n;
-    return n = i + XMAX*j + XMAX*YMAX*k;
+    return n = i + X*j + X*Y*k;
 }
 
-
+/*
 /// プログラム検証
 int main(void) {
     int n = 69;
@@ -83,3 +88,4 @@ int main(void) {
     std::cout << pos3d[0] <<", "<< pos3d[1] <<", " << pos3d[2] << std::endl;
 
 }
+*/

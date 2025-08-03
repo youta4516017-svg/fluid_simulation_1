@@ -28,9 +28,10 @@ int _ON_WALL_BC = 230;  // 境界条件
 int _ISOLATED_BC = 240; // 孤立壁の境界条件
 */
 
-
+/*
 /// プログラム検証
 int main(void) {
     FLUID i = FLUID::LIQUID;
     std::cout << static_cast<int>(i) << std::endl;
 }
+    */
