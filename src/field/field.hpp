@@ -1,3 +1,6 @@
+#ifndef FIELD_HPP   /// インクルードガード
+#define FIELD_HPP
+
 #include <vector>
 #include <iostream>
 
@@ -23,3 +26,5 @@ int reverse_index_2D(int i, int j, int XMAX, int YMAX);  /// ２次元空間の�
 
 vector<int> get_3D_index(int n, int XMAX, int YMAX, int ZMAX);  /// 一次元配列の番号から３次元空間の座標を計算する関数
 int reverse_index_3D(int i, int j, int k, int XMAX, int YMAX, int ZMAX);  /// ３次元空間の座標から一次元配列のインデックスを返す関数
+
+#endif // FIELD_HPP
