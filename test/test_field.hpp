@@ -25,7 +25,7 @@ typedef enum {
     ISOLATED_BC, // 孤立壁の境界条件
 } BoundaryCondition;
 
-/// 流体の物理的特性を定義するクラス
+/// 計算領域を定義するクラス
 class properties_of_fluid
 {
 private:
@@ -41,6 +41,18 @@ public:
     void set_properties(double rho, double mu, double k, double cp, FLUID type = GAS, int test = 0);
     vector<double> get_properties(int test = 0);
     ~properties_of_fluid();
+};
+
+class make_field {
+private:
+    int X;
+    int Y;
+    int Z; 
+public:
+    make_field(/* args */);
+    void set_field(int dimension = 2, int test = 0);
+    vector<double> get_field(int XMAX, int YMAX, int ZMAX, int test = 0);
+    ~make_field();
 };
 
 
