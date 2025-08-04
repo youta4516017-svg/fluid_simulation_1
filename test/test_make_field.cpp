@@ -7,6 +7,8 @@ using std::vector;
 int XMAX;  // X方向の最大値
 int YMAX;  // Y方向の最大値
 int ZMAX;  // Z方向の最大値
+int NMAX;  // 計算領域の要素の最大値
+int DIM;   // 次元（2D or 3D）
 
 make_field::make_field(/* args */) {
     // コンストラクタの初期化処理
@@ -79,8 +81,14 @@ void make_field::set_field(int dim, int test) {
         std::cout << "Setting field with dimensions: " << XMAX << "x" << YMAX << "x" << ZMAX 
                   << " and dimension: " << dimension << std::endl;
     }
+
+    DIM = dimension;  // 次元を設定
+
+    NMAX = XMAX * YMAX * ZMAX;  // 計算領域の要素の最大値を設定
+    nmax = NMAX;  // プライベート変数に格納
 }
 
+// フィールドの情報を取得する関数
 vector<int> make_field::get_field(int test) {
     vector<int> field_setting(4);  // フィールドの初期化
 
