@@ -47,11 +47,12 @@ class make_field {
 private:
     int X;
     int Y;
-    int Z; 
+    int Z;
+    int dimension; // 2D or 3D
 public:
     make_field(/* args */);
-    void set_field(int dimension = 2, int test = 0);
-    vector<double> get_field(int XMAX, int YMAX, int ZMAX, int test = 0);
+    void set_field(int dim = 2, int test = 0);
+    vector<int> get_field(int test = 0);
     ~make_field();
 };
 
