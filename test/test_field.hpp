@@ -67,7 +67,7 @@ private:
     int dimension; // 2D or 3D
     int nmax;
 public:
-    make_field(/* args */);
+    make_field();
     void set_field(int dim = 2, int test = 0);
     vector<int> get_field(int test = 0);
     ~make_field();
